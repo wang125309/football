@@ -1,4 +1,5 @@
 require("../../bower_components/zepto/zepto.js");
+require("../../bower_components/zeptojs/src/touch.js");
 require("../../bower_components/velocity/velocity.min.js");
 require("../../bower_components/swiper/dist/js/swiper.min.js");
 require("../js/share.min.js");
@@ -65,7 +66,7 @@ window.onload = function(){
     };
     var formShow = function() {
         $(".page9 .form").show();
-        n = Math.ceil(( Math.random() * 9 + 1 ) % 9 + 1 );
+        n = Math.ceil(( Math.random() * 9 + 1 ) % 8 + 1 );
         $(".result").css("background-image","url('/static/image/result"+n+".png')");
         $(".result").show();
     };
@@ -112,12 +113,14 @@ window.onload = function(){
                 $(".page9 .main").on("touchstart",function(e){
                     e.preventDefault();
                     time = (new Date()).valueOf();
+                    $(".page9 .main").css("background-image","url('/static/image/tap-press.png')");
                 });
                 $(".page9 .main").on("touchend",function(e){
                     e.preventDefault();
                     interval = (new Date()).valueOf() - time;
                     if ( interval > 3000 ) {
                         clearAnimation(formShow);
+                        $(".page9 .main").css("background-image","url('/static/image/tap.png')");
                     }
                 });
                 $(".submit").on("tap",function(){
