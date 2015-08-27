@@ -1678,7 +1678,13 @@ window.onload = function(){
         $(".page9 .main").show();
     };
     var formShow = function() {
-        $(".page9 .form").show(); 
+        $(".page9 .form").show();
+        n = Math.ceil(( Math.random() * 9 + 1 ) % 9 + 1 );
+        $(".result").css("background-image","url('/static/image/result"+n+".png')");
+        $(".result").show();
+    };
+    var shareShow = function() {
+        $(".share").show();  
     };
     var swiper = new Swiper('.swiper-container', {
         direction:'vertical',
@@ -1728,11 +1734,24 @@ window.onload = function(){
                         clearAnimation(formShow);
                     }
                 });
+                $(".submit").on("tap",function(){
+                    $.post("/wx/football/submit/",{
+                        "name":$(".name input").val(),
+                        "phone":$(".phone input").val()
+                    },function(data){
+                        if (data.status == 'success') {
+                            shareShow();
+                        }
+                        else {
+                            alert("您已经报过名了")
+                        }
+                    }); 
+                });
             }
         }
     });
 }
 
 },{"../../bower_components/swiper/dist/js/swiper.min.js":1,"../../bower_components/velocity/velocity.min.js":2,"../../bower_components/zepto/zepto.js":3,"../js/share.min.js":5}],5:[function(require,module,exports){
-!function t(e,o,n){function r(u,w){if(!o[u]){if(!e[u]){var a="function"==typeof require&&require;if(!w&&a)return a(u,!0);if(i)return i(u,!0);throw new Error("Cannot find module '"+u+"'")}var c=o[u]={exports:{}};e[u][0].call(c.exports,function(t){var o=e[u][1][t];return r(o?o:t)},c,c.exports,t,e,o,n)}return o[u].exports}for(var i="function"==typeof require&&require,u=0;u<n.length;u++)r(n[u]);return r}({1:[function(){$(function(){$.post("/blow/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"}),wx.onMenuShareAppMessage({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"})}),wx.error(function(){$.get("/blow/update_access_token/",function(){$.post("/blow/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"}),wx.onMenuShareAppMessage({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"})})})})})})})},{}]},{},[1]);
+
 },{}]},{},[4])

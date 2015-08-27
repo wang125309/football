@@ -64,7 +64,13 @@ window.onload = function(){
         $(".page9 .main").show();
     };
     var formShow = function() {
-        $(".page9 .form").show(); 
+        $(".page9 .form").show();
+        n = Math.ceil(( Math.random() * 9 + 1 ) % 9 + 1 );
+        $(".result").css("background-image","url('/static/image/result"+n+".png')");
+        $(".result").show();
+    };
+    var shareShow = function() {
+        $(".share").show();  
     };
     var swiper = new Swiper('.swiper-container', {
         direction:'vertical',
@@ -113,6 +119,19 @@ window.onload = function(){
                     if ( interval > 3000 ) {
                         clearAnimation(formShow);
                     }
+                });
+                $(".submit").on("tap",function(){
+                    $.post("/wx/football/submit/",{
+                        "name":$(".name input").val(),
+                        "phone":$(".phone input").val()
+                    },function(data){
+                        if (data.status == 'success') {
+                            shareShow();
+                        }
+                        else {
+                            alert("您已经报过名了")
+                        }
+                    }); 
                 });
             }
         }
