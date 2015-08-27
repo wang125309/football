@@ -1906,8 +1906,8 @@ window.onload = function(){
                 });
                 $(".submit").on("tap",function(){
                     $.post("/wx/football/submit/",{
-                        "name":$(".name input").val(),
-                        "phone":$(".phone input").val()
+                        "name":$("#input").val(),
+                        "phone":$("#mobile").val()
                     },function(data){
                         if (data.status == 'success') {
                             shareShow();
