@@ -1,5 +1,5 @@
 $(function(){
-    $.post("/wx/wxconfig/",{
+    $.post("/wx/portal/wxconfig/",{
 		"url":location.href
 	},function(data){
 		wx.config(data);
@@ -16,8 +16,8 @@ $(function(){
 			});
         });
 		wx.error(function(res){
-			$.get("/wx/update_access_token/",function(data){
-				$.post("/wx/wxconfig/",{
+			$.get("/wx/portal/update_access_token/",function(data){
+				$.post("/wx/portal/wxconfig/",{
 					"url":location.href
 				},function(data){
 					wx.config(data);
