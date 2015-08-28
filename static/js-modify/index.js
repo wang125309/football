@@ -118,14 +118,14 @@ window.onload = function(){
                 $(".page9 .main").on("touchend",function(e){
                     e.preventDefault();
                     interval = (new Date()).valueOf() - time;
-                    if ( interval > 3000 ) {
+                    if ( interval > 1500 ) {
                         clearAnimation(formShow);
-                        $(".page9 .main").css("background-image","url('/static/image/tap.png')");
+                        $(".page9 .main-press").show();
                     }
                 });
                 $(".submit").on("tap",function(){
                     $.post("/wx/football/submit/",{
-                        "name":$("#input").val(),
+                        "name":$("#name").val(),
                         "phone":$("#mobile").val()
                     },function(data){
                         if (data.status == 'success') {

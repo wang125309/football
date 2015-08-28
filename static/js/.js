@@ -1899,14 +1899,14 @@ window.onload = function(){
                 $(".page9 .main").on("touchend",function(e){
                     e.preventDefault();
                     interval = (new Date()).valueOf() - time;
-                    if ( interval > 3000 ) {
+                    if ( interval > 1500 ) {
                         clearAnimation(formShow);
-                        $(".page9 .main").css("background-image","url('/static/image/tap.png')");
+                        $(".page9 .main-press").show();
                     }
                 });
                 $(".submit").on("tap",function(){
                     $.post("/wx/football/submit/",{
-                        "name":$("#input").val(),
+                        "name":$("#name").val(),
                         "phone":$("#mobile").val()
                     },function(data){
                         if (data.status == 'success') {
@@ -1923,5 +1923,5 @@ window.onload = function(){
 }
 
 },{"../../bower_components/swiper/dist/js/swiper.min.js":1,"../../bower_components/velocity/velocity.min.js":2,"../../bower_components/zepto/zepto.js":3,"../../bower_components/zeptojs/src/touch.js":4,"../js/share.min.js":6}],6:[function(require,module,exports){
-!function t(e,o,n){function r(u,w){if(!o[u]){if(!e[u]){var a="function"==typeof require&&require;if(!w&&a)return a(u,!0);if(i)return i(u,!0);throw new Error("Cannot find module '"+u+"'")}var c=o[u]={exports:{}};e[u][0].call(c.exports,function(t){var o=e[u][1][t];return r(o?o:t)},c,c.exports,t,e,o,n)}return o[u].exports}for(var i="function"==typeof require&&require,u=0;u<n.length;u++)r(n[u]);return r}({1:[function(){$(function(){$.post("/blow/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"}),wx.onMenuShareAppMessage({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"})}),wx.error(function(){$.get("/blow/update_access_token/",function(){$.post("/blow/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"}),wx.onMenuShareAppMessage({link:"http://www.360youtu.com/ford/template/index.html",imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",title:"锐界人生 不止于超越"})})})})})})})},{}]},{},[1]);
+!function t(n,i,e){function o(a,l){if(!i[a]){if(!n[a]){var f="function"==typeof require&&require;if(!l&&f)return f(a,!0);if(r)return r(a,!0);throw new Error("Cannot find module '"+a+"'")}var c=i[a]={exports:{}};n[a][0].call(c.exports,function(t){var i=n[a][1][t];return o(i?i:t)},c,c.exports,t,n,i,e)}return i[a].exports}for(var r="function"==typeof require&&require,a=0;a<e.length;a++)o(e[a]);return o}({1:[function(){$(function(){$.post("/wx/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！"}),wx.onMenuShareAppMessage({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！"})}),wx.error(function(){$.get("/wx/update_access_token/",function(){$.post("/wx/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！"}),wx.onMenuShareAppMessage({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！"})})})})})})})},{}]},{},[1]);
 },{}]},{},[5])

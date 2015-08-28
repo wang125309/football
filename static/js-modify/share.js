@@ -1,39 +1,39 @@
 $(function(){
-    $.post("/blow/wxconfig/",{
+    $.post("/wx/wxconfig/",{
 		"url":location.href
 	},function(data){
 		wx.config(data);
 		wx.ready(function(){
 			wx.onMenuShareTimeline({
-                link:"http://www.360youtu.com/ford/template/index.html",
-                imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",
-                title:"锐界人生 不止于超越",
+                link:"http://football.qingdianer.com",
+                imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",
+                title:"呐喊吧！为中国队加油！",
 			});
 			wx.onMenuShareAppMessage({
-                link:"http://www.360youtu.com/ford/template/index.html",
-                imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",
-                title:"锐界人生 不止于超越",
+                link:"http://football.qingdianer.com",
+                imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",
+                title:"呐喊吧！为中国队加油！",
 			});
         });
 		wx.error(function(res){
-			$.get("/blow/update_access_token/",function(data){
-				$.post("/blow/wxconfig/",{
+			$.get("/wx/update_access_token/",function(data){
+				$.post("/wx/wxconfig/",{
 					"url":location.href
 				},function(data){
 					wx.config(data);
 					wx.ready(function(){
-		            	wx.onMenuShareTimeline({
-                            link:"http://www.360youtu.com/ford/template/index.html",
-                            imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",
-                            title:"锐界人生 不止于超越",
-			            });
-			            wx.onMenuShareAppMessage({
-                            link:"http://www.360youtu.com/ford/template/index.html",
-                            imgUrl:"http://www.360youtu.com/ford/static/image/share-background.jpg",
-                            title:"锐界人生 不止于超越",
-			            });
-                    });
-                });
+                        wx.onMenuShareTimeline({
+                            link:"http://football.qingdianer.com",
+                            imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",
+                            title:"呐喊吧！为中国队加油！",
+                        });
+                        wx.onMenuShareAppMessage({
+                            link:"http://football.qingdianer.com",
+                            imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",
+                            title:"呐喊吧！为中国队加油！",
+                        });
+		            });
+		        });
 		    });
         });
     });
