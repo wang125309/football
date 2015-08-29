@@ -1792,6 +1792,19 @@ window.onload = function(){
         return false;
     });
     on = false;
+    $("#audio").attr({"src":"/static/image/background.mp3"});
+    $(".music").on("click",function(){
+        if(on) {
+            on = false;
+            document.getElementById("audio").pause();
+            $(".music").removeClass("music-play");
+        }   
+        else {
+            on = true;
+            document.getElementById("audio").play();
+            $(".music").addClass("music-play");
+        }
+    });
     var clearAnimation = function(fun) {
         $(".title").hide();
         $(".sound").hide();
@@ -1905,6 +1918,9 @@ window.onload = function(){
                     }
                 });
                 $(".submit").on("tap",function(){
+                    if($("#mobile").val().length != 11) {
+                        alert("手机号格式有问题，请修改后再提交");
+                    }
                     $.post("/wx/football/submit/",{
                         "name":$("#name").val(),
                         "phone":$("#mobile").val()
