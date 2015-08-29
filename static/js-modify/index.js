@@ -3,6 +3,7 @@ require("../../bower_components/zeptojs/src/touch.js");
 require("../../bower_components/velocity/velocity.min.js");
 require("../../bower_components/swiper/dist/js/swiper.min.js");
 require("../js/share.min.js");
+
 window.onload = function(){
     $("#loading").velocity("fadeOut");
     w = $(window).width();
@@ -11,9 +12,8 @@ window.onload = function(){
         return false;
     });
     on = false;
-    $("#audio").attr({"src":"/static/image/background.mp3"},function(){
-        $("#audio")[0].play();
-    });
+    $("#audio").attr({"src":"/static/image/background.mp3"});
+    $("#audio")[0].play();
     $(".music").on("click",function(){
         if(on) {
             on = false;
