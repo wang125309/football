@@ -1921,17 +1921,19 @@ window.onload = function(){
                     if($("#mobile").val().length != 11) {
                         alert("手机号格式有问题，请修改后再提交");
                     }
-                    $.post("/wx/football/submit/",{
-                        "name":$("#name").val(),
-                        "phone":$("#mobile").val()
-                    },function(data){
-                        if (data.status == 'success') {
-                            shareShow();
-                        }
-                        else {
-                            alert("您已经报过名了")
-                        }
-                    }); 
+                    else {
+                        $.post("/wx/football/submit/",{
+                            "name":$("#name").val(),
+                            "phone":$("#mobile").val()
+                        },function(data){
+                            if (data.status == 'success') {
+                                shareShow();
+                            }
+                            else {
+                                alert("您已经报过名了")
+                            }
+                        }); 
+                    }
                 });
             }
         }
@@ -1939,5 +1941,5 @@ window.onload = function(){
 }
 
 },{"../../bower_components/swiper/dist/js/swiper.min.js":1,"../../bower_components/velocity/velocity.min.js":2,"../../bower_components/zepto/zepto.js":3,"../../bower_components/zeptojs/src/touch.js":4,"../js/share.min.js":6}],6:[function(require,module,exports){
-!function t(e,n,i){function o(a,l){if(!n[a]){if(!e[a]){var c="function"==typeof require&&require;if(!l&&c)return c(a,!0);if(r)return r(a,!0);throw new Error("Cannot find module '"+a+"'")}var f=n[a]={exports:{}};e[a][0].call(f.exports,function(t){var n=e[a][1][t];return o(n?n:t)},f,f.exports,t,e,n,i)}return n[a].exports}for(var r="function"==typeof require&&require,a=0;a<i.length;a++)o(i[a]);return o}({1:[function(){$(function(){$.post("/wx/portal/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！"}),wx.onMenuShareAppMessage({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！"})}),wx.error(function(){$.get("/wx/portal/update_access_token/",function(){$.post("/wx/portal/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！",desc:"呐喊吧！球迷君！喊出你的最强者，为中国队空中加油！更有足球装备等你来赢！不吝铁肺，放胆来试！"}),wx.onMenuShareAppMessage({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！为中国队加油！",desc:"呐喊吧！球迷君！喊出你的最强者，为中国队空中加油！更有足球装备等你来赢！不吝铁肺，放胆来试！"})})})})})})})},{}]},{},[1]);
+!function t(e,n,i){function o(a,l){if(!n[a]){if(!e[a]){var c="function"==typeof require&&require;if(!l&&c)return c(a,!0);if(r)return r(a,!0);throw new Error("Cannot find module '"+a+"'")}var f=n[a]={exports:{}};e[a][0].call(f.exports,function(t){var n=e[a][1][t];return o(n?n:t)},f,f.exports,t,e,n,i)}return n[a].exports}for(var r="function"==typeof require&&require,a=0;a<i.length;a++)o(i[a]);return o}({1:[function(){$(function(){$.post("/wx/portal/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！球迷君！",desc:"喊出你的最强者，为中国队空中加油！更有足球装备等你来赢！不吝铁肺，放胆来试！"}),wx.onMenuShareAppMessage({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！球迷君！",desc:"喊出你的最强者，为中国队空中加油！更有足球装备等你来赢！不吝铁肺，放胆来试！"})}),wx.error(function(){$.get("/wx/portal/update_access_token/",function(){$.post("/wx/portal/wxconfig/",{url:location.href},function(t){wx.config(t),wx.ready(function(){wx.onMenuShareTimeline({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！球迷君！",desc:"喊出你的最强者，为中国队空中加油！更有足球装备等你来赢！不吝铁肺，放胆来试！"}),wx.onMenuShareAppMessage({link:"http://football.qingdianer.com",imgUrl:"http://football.qingdianer.com/static/image/share-image.jpg",title:"呐喊吧！球迷君！",desc:"喊出你的最强者，为中国队空中加油！更有足球装备等你来赢！不吝铁肺，放胆来试！"})})})})})})})},{}]},{},[1]);
 },{}]},{},[5])

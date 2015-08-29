@@ -140,17 +140,19 @@ window.onload = function(){
                     if($("#mobile").val().length != 11) {
                         alert("手机号格式有问题，请修改后再提交");
                     }
-                    $.post("/wx/football/submit/",{
-                        "name":$("#name").val(),
-                        "phone":$("#mobile").val()
-                    },function(data){
-                        if (data.status == 'success') {
-                            shareShow();
-                        }
-                        else {
-                            alert("您已经报过名了")
-                        }
-                    }); 
+                    else {
+                        $.post("/wx/football/submit/",{
+                            "name":$("#name").val(),
+                            "phone":$("#mobile").val()
+                        },function(data){
+                            if (data.status == 'success') {
+                                shareShow();
+                            }
+                            else {
+                                alert("您已经报过名了")
+                            }
+                        }); 
+                    }
                 });
             }
         }
