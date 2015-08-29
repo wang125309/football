@@ -92,9 +92,7 @@ window.onload = function(){
         direction:'vertical',
         speed:500,
         onInit: function() {
-            $("#loading").velocity("fadeOut",function(){
-                clearAnimation(firstShow);
-            });
+            clearAnimation(firstShow);
         },
         onSlideChangeEnd: function(swiper){
             if(swiper.activeIndex == 0) {
