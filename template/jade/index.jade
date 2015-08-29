@@ -7,8 +7,16 @@ include ./lib/header.jade
             };
             rem();
             window.addEventListener('resize', rem, false);
+            var _hmt = _hmt || []
         })();
+        var _hmt = _hmt || [];
+        (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?7cde9743ed9d8d859c25d6693815b34f";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
 
+        })();
     link(href="/static/css/index.css",rel="stylesheet",type="text/css")
     body
         audio#audio(src="/static/image/background.mp3",loop="loop")
