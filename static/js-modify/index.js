@@ -5,7 +5,9 @@ require("../../bower_components/swiper/dist/js/swiper.min.js");
 require("../js/share.min.js");
 
 window.onload = function(){
-    $("#loading").velocity("fadeOut");
+    $("#loading").velocity("fadeOut",function(){
+
+        
     w = $(window).width();
     h = $(window).height();
     $(document).on("touchmove",function(){
@@ -157,5 +159,6 @@ window.onload = function(){
                 });
             }
         }
+    });
     });
 }
