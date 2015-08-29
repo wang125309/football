@@ -11,7 +11,9 @@ window.onload = function(){
         return false;
     });
     on = false;
-    $("#audio").attr({"src":"/static/image/background.mp3"});
+    $("#audio").attr({"src":"/static/image/background.mp3"},function(){
+        $("#audio")[0].play();
+    });
     $(".music").on("click",function(){
         if(on) {
             on = false;
