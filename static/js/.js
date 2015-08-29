@@ -1871,7 +1871,6 @@ window.onload = function(){
     };
     var swiper = new Swiper('.swiper-container', {
         direction:'vertical',
-        lazyLoading:true,
         speed:500,
         onInit: function() {
             clearAnimation(firstShow);
