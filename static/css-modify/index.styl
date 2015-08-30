@@ -74,10 +74,10 @@
     }
 }
 @-webkit-keyframes sound {
-    0% {
+    0%,100% {
         opacity:0;
     }
-    100% {
+    50% {
         opacity:1;
     }
 }
@@ -214,7 +214,13 @@ body {
             top:0;
             image-fit('sound.png');
             z-index:2;
-            animation(1s,'sound',1s);
+            -webkit-animation-name:sound;
+            -webkit-backface-visibility: hidden;
+            -webkit-animation-duration: 2s; 
+            -webkit-animation-delay: 1s; 
+            -webkit-animation-timing-function: ease;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-fill-mode: both;
         }
     }
     .page1 {
