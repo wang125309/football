@@ -1812,6 +1812,7 @@ window.onload = function(){
         $(".sound").hide();
         $(".sub-title").hide();
         $(".main").hide();
+        $(".desc").hide();
         fun();
     };
     var firstShow = function() {
@@ -1910,11 +1911,13 @@ window.onload = function(){
                     e.preventDefault();
                     time = (new Date()).valueOf();
                     $(".page9 .main-press").show();
+                    $(".page9 .tap-bigger").show();
                 });
                 $(".page9 .main").on("touchend",function(e){
                     e.preventDefault();
                     interval = (new Date()).valueOf() - time;
                     $(".page9 .main-press").hide();
+                    $(".page9 .tap-bigger").hide();
                     if ( interval > 1500 ) {
                         clearAnimation(formShow);
 
