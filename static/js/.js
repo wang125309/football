@@ -1908,14 +1908,15 @@ window.onload = function(){
                 $(".page9 .main").on("touchstart",function(e){
                     e.preventDefault();
                     time = (new Date()).valueOf();
-                    $(".page9 .main").css("background-image","url('/static/image/tap-press.png')");
+                    $(".page9 .main-press").show();
                 });
                 $(".page9 .main").on("touchend",function(e){
                     e.preventDefault();
                     interval = (new Date()).valueOf() - time;
+                    $(".page9 .main-press").hide();
                     if ( interval > 1500 ) {
                         clearAnimation(formShow);
-                        $(".page9 .main-press").show();
+
                     }
                 });
                 $(".submit").on("tap",function(){
