@@ -123,6 +123,7 @@ window.onload = function(){
                 clearAnimation(page8Show);
             }
             else if(swiper.activeIndex == 9) {
+                $("#audio")[0].pause();
                 clearAnimation(page9Show);
                 $(".page9 .main").on("touchstart",function(e){
                     e.preventDefault();
