@@ -79,6 +79,7 @@ window.onload = function(){
         $(".page9 .title").show();
         $(".page9 .sub-title").show();
         $(".page9 .main").show();
+        $(".page9 .desc").show();
     };
     var formShow = function() {
         $(".page9 .form").show();
