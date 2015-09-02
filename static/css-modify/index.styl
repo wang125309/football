@@ -214,15 +214,22 @@ body {
     .page-first {
         .background {
             background('background-first.jpg');
-            background-size:100% auto;
+        }
+        .logo {
+            image-wauto('logo.png')
+            width:100%;
+            height:1rem;
+            position:absolute;
+            top:0;
+            z-index:5;
         }
         .title {
-            z-index:2;
+            z-index:7;
             image-wauto('title-first.png')
             width:100%;
             height:1rem;
             position:absolute;
-            top:20%;
+            top:26%;
             animation(0.7s,'title-first',1s);
             display:none;
         }
